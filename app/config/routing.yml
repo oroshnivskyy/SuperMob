@@ -1,5 +1,5 @@
 project_main:
-    resource: "@ProjectMainBundle/Resources/config/routing.yml"
+    resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /
 
 sonata_user:

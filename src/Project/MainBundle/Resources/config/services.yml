@@ -1,7 +1,0 @@
-parameters:
-#    project_main.example.class: Project\MainBundle\Example
-
-services:
-#    project_main.example:
-#        class: %project_main.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
