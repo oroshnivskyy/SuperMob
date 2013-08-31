@@ -15,16 +15,16 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('news_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('news_link_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.url }}</td>
                 <td>{{ entity.text }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('news_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('news_link_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('news_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('news_link_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -35,7 +35,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('news_new') }}">
+            <a href="{{ path('news_link_new') }}">
                 Create a new entry
             </a>
         </li>

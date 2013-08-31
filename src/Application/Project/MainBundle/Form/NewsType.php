@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Application\Project\MainBundle\Form\NewsLinkType;
 class NewsType extends AbstractType
 {
         /**
@@ -20,6 +21,13 @@ class NewsType extends AbstractType
             ->add('text', 'textarea', array('label' => 'Текст'))
             ->add('pubDate', null, array('label' => 'Дата новости'))
             ->add('newsCategory', null, array('label' => 'Категория'))
+            ->add('newsLinks', 'collection', array(
+                                                  'label' => 'Ссылки к новости',
+                                                  'type' => new NewsLinkType(),
+                                                  'allow_add' => true,
+                                                  'allow_delete' => true,
+                                                  'prototype' => true
+                                             ));
         ;
     }
     

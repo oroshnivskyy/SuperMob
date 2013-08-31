@@ -50,6 +50,12 @@ class NewsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            foreach ($entity->getNewsLinks() as $link)
+            {
+                $link->setNews($entity);
+            }
+
             $em->persist($entity);
             $em->flush();
 
@@ -186,11 +192,35 @@ class NewsController extends Controller
             throw $this->createNotFoundException('Unable to find News entity.');
         }
 
+        $beforeSaveLinks = $currentLinkIds = array();
+        foreach ($entity->getNewsLinks() as $link) {
+            $beforeSaveLinks [$link->getId()] = $link;
+        }
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+
+            foreach ($entity->getNewsLinks() as $link)
+            {
+                $link->setNews($entity);
+                //Если ссылка - не только что занесенная (у нее есть id)
+                if ($link->getId()) {
+                    $currentLinkIds[] = $link->getId();
+                }
+            }
+
+            $em->persist($entity);
+
+            //Если ссылка которая была до сохранения отсутствует в текущем наборе - удаляем ее
+            foreach ($beforeSaveLinks as $linkId => $link) {
+                if (!in_array( $linkId, $currentLinkIds)) {
+                    $em->remove($link);
+                }
+            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('news_edit', array('id' => $id)));

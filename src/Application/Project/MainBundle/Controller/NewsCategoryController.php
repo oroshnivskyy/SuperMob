@@ -13,7 +13,7 @@ use Application\Project\MainBundle\Form\NewsCategoryType;
 /**
  * NewsCategory controller.
  *
- * @Route("/news")
+ * @Route("/news_category")
  */
 class NewsCategoryController extends Controller
 {
@@ -21,7 +21,7 @@ class NewsCategoryController extends Controller
     /**
      * Lists all NewsCategory entities.
      *
-     * @Route("/", name="news")
+     * @Route("/", name="news_category")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class NewsCategoryController extends Controller
     /**
      * Creates a new NewsCategory entity.
      *
-     * @Route("/", name="news_create")
+     * @Route("/", name="news_category_create")
      * @Method("POST")
      * @Template("MainBundle:NewsCategory:new.html.twig")
      */
@@ -84,7 +84,7 @@ class NewsCategoryController extends Controller
     /**
      * Displays a form to create a new NewsCategory entity.
      *
-     * @Route("/new", name="news_new")
+     * @Route("/new", name="news_category_new")
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +102,7 @@ class NewsCategoryController extends Controller
     /**
      * Finds and displays a NewsCategory entity.
      *
-     * @Route("/{id}", name="news_show")
+     * @Route("/{id}", name="news_category_show")
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +127,7 @@ class NewsCategoryController extends Controller
     /**
      * Displays a form to edit an existing NewsCategory entity.
      *
-     * @Route("/{id}/edit", name="news_edit")
+     * @Route("/{id}/edit", name="news_category_edit")
      * @Method("GET")
      * @Template()
      */
@@ -172,7 +172,7 @@ class NewsCategoryController extends Controller
     /**
      * Edits an existing NewsCategory entity.
      *
-     * @Route("/{id}", name="news_update")
+     * @Route("/{id}", name="news_category_update")
      * @Method("PUT")
      * @Template("MainBundle:NewsCategory:edit.html.twig")
      */
@@ -205,7 +205,7 @@ class NewsCategoryController extends Controller
     /**
      * Deletes a NewsCategory entity.
      *
-     * @Route("/{id}", name="news_delete")
+     * @Route("/{id}", name="news_category_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

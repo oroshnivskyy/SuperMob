@@ -3,6 +3,9 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Application\Project\MainBundle\Entity\NewsLink;
+use Application\Project\MainBundle\Entity\NewsCategory;
 
 /**
  * News
@@ -59,7 +62,16 @@ class News
      */
     private $newsCategory;
 
+    /**
+     * @ORM\OneToMany(targetEntity="NewsLink", mappedBy="news", cascade={"all"})
+     */
+    protected $newsLinks;
 
+    public function __construct()
+    {
+        $this->newsLinks = new ArrayCollection();
+        $this->pubDate = new \DateTime('now');
+    }
 
     /**
      * Get id
@@ -166,10 +178,10 @@ class News
     /**
      * Set newsCategory
      *
-     * @param \Application\Project\MainBundle\Entity\NewsCategory $newsCategory
+     * @param NewsCategory $newsCategory
      * @return News
      */
-    public function setNewsCategory(\Application\Project\MainBundle\Entity\NewsCategory $newsCategory = null)
+    public function setNewsCategory(NewsCategory $newsCategory = null)
     {
         $this->newsCategory = $newsCategory;
     
@@ -179,10 +191,43 @@ class News
     /**
      * Get newsCategory
      *
-     * @return \Application\Project\MainBundle\Entity\NewsCategory 
+     * @return NewsCategory 
      */
     public function getNewsCategory()
     {
         return $this->newsCategory;
+    }
+
+    /**
+     * Add newsLinks
+     *
+     * @param NewsLink $newsLinks
+     * @return News
+     */
+    public function addNewsLink(NewsLink $newsLinks)
+    {
+        $this->newsLinks[] = $newsLinks;
+    
+        return $this;
+    }
+
+    /**
+     * Remove newsLinks
+     *
+     * @param NewsLink $newsLinks
+     */
+    public function removeNewsLink(NewsLink $newsLinks)
+    {
+        $this->newsLinks->removeElement($newsLinks);
+    }
+
+    /**
+     * Get newsLinks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNewsLinks()
+    {
+        return $this->newsLinks;
     }
 }

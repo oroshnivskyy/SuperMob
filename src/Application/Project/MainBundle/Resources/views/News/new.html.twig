@@ -1,15 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>News creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('news') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <h1>Занесение новости</h1>
+    {% include 'MainBundle:News:form.html.twig' %}
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('news') }}">
+                Назад к списку
+            </a>
+        </li>
+    </ul>
 {% endblock %}

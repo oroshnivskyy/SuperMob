@@ -13,7 +13,7 @@ use Application\Project\MainBundle\Form\NewsLinkType;
 /**
  * NewsLink controller.
  *
- * @Route("/news")
+ * @Route("/news_link")
  */
 class NewsLinkController extends Controller
 {
@@ -21,7 +21,7 @@ class NewsLinkController extends Controller
     /**
      * Lists all NewsLink entities.
      *
-     * @Route("/", name="news")
+     * @Route("/", name="news_link")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class NewsLinkController extends Controller
     /**
      * Creates a new NewsLink entity.
      *
-     * @Route("/", name="news_create")
+     * @Route("/", name="news_link_create")
      * @Method("POST")
      * @Template("MainBundle:NewsLink:new.html.twig")
      */
@@ -84,7 +84,7 @@ class NewsLinkController extends Controller
     /**
      * Displays a form to create a new NewsLink entity.
      *
-     * @Route("/new", name="news_new")
+     * @Route("/new", name="news_link_new")
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +102,7 @@ class NewsLinkController extends Controller
     /**
      * Finds and displays a NewsLink entity.
      *
-     * @Route("/{id}", name="news_show")
+     * @Route("/{id}", name="news_link_show")
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +127,7 @@ class NewsLinkController extends Controller
     /**
      * Displays a form to edit an existing NewsLink entity.
      *
-     * @Route("/{id}/edit", name="news_edit")
+     * @Route("/{id}/edit", name="news_link_edit")
      * @Method("GET")
      * @Template()
      */
@@ -172,7 +172,7 @@ class NewsLinkController extends Controller
     /**
      * Edits an existing NewsLink entity.
      *
-     * @Route("/{id}", name="news_update")
+     * @Route("/{id}", name="news_link_update")
      * @Method("PUT")
      * @Template("MainBundle:NewsLink:edit.html.twig")
      */
@@ -205,7 +205,7 @@ class NewsLinkController extends Controller
     /**
      * Deletes a NewsLink entity.
      *
-     * @Route("/{id}", name="news_delete")
+     * @Route("/{id}", name="news_link_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

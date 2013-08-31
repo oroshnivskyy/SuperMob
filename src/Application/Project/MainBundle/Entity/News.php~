@@ -3,6 +3,7 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * News
@@ -59,5 +60,138 @@ class News
      */
     private $newsCategory;
 
+    /**
+     * @ORM\OneToMany(targetEntity="NewsLink", mappedBy="news", cascade={"all"})
+     */
+    protected $newsLinks;
 
+    function __construct()
+    {
+        $this->newsLinks = new ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return News
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set announce
+     *
+     * @param string $announce
+     * @return News
+     */
+    public function setAnnounce($announce)
+    {
+        $this->announce = $announce;
+    
+        return $this;
+    }
+
+    /**
+     * Get announce
+     *
+     * @return string 
+     */
+    public function getAnnounce()
+    {
+        return $this->announce;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return News
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set pubDate
+     *
+     * @param \DateTime $pubDate
+     * @return News
+     */
+    public function setPubDate($pubDate)
+    {
+        $this->pubDate = $pubDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get pubDate
+     *
+     * @return \DateTime 
+     */
+    public function getPubDate()
+    {
+        return $this->pubDate;
+    }
+
+    /**
+     * Set newsCategory
+     *
+     * @param \Application\Project\MainBundle\Entity\NewsCategory $newsCategory
+     * @return News
+     */
+    public function setNewsCategory(\Application\Project\MainBundle\Entity\NewsCategory $newsCategory = null)
+    {
+        $this->newsCategory = $newsCategory;
+    
+        return $this;
+    }
+
+    /**
+     * Get newsCategory
+     *
+     * @return \Application\Project\MainBundle\Entity\NewsCategory 
+     */
+    public function getNewsCategory()
+    {
+        return $this->newsCategory;
+    }
 }
