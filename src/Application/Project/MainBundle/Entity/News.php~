@@ -1,0 +1,63 @@
+<?php
+
+namespace Application\Project\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * News
+ *
+ * @ORM\Table(name="news")
+ * @ORM\Entity
+ */
+class News
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="announce", type="text", nullable=true)
+     */
+    private $announce;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="text", nullable=true)
+     */
+    private $text;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="pub_date", type="date", nullable=true)
+     */
+    private $pubDate;
+
+    /**
+     * @var \NewsCategory
+     *
+     * @ORM\ManyToOne(targetEntity="NewsCategory")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="news_category_id", referencedColumnName="id")
+     * })
+     */
+    private $newsCategory;
+
+
+}
