@@ -29,6 +29,7 @@ class NewsCategory
     private $name;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -68,3 +69,6 @@ class NewsCategory
         return $this->getName();
     }
 }
+=======
+}
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771

@@ -3,7 +3,10 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
+=======
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
 
 /**
  * News
@@ -60,6 +63,7 @@ class News
      */
     private $newsCategory;
 
+<<<<<<< HEAD
     /**
      * @ORM\OneToMany(targetEntity="NewsLink", mappedBy="news", cascade={"all"})
      */
@@ -195,3 +199,7 @@ class News
         return $this->newsCategory;
     }
 }
+=======
+
+}
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771

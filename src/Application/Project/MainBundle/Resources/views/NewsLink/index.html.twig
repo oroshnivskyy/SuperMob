@@ -15,16 +15,27 @@
         <tbody>
         {% for entity in entities %}
             <tr>
+<<<<<<< HEAD
                 <td><a href="{{ path('news_link_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+=======
+                <td><a href="{{ path('news_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
                 <td>{{ entity.url }}</td>
                 <td>{{ entity.text }}</td>
                 <td>
                 <ul>
                     <li>
+<<<<<<< HEAD
                         <a href="{{ path('news_link_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
                         <a href="{{ path('news_link_edit', { 'id': entity.id }) }}">edit</a>
+=======
+                        <a href="{{ path('news_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_edit', { 'id': entity.id }) }}">edit</a>
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
                     </li>
                 </ul>
                 </td>
@@ -35,7 +46,11 @@
 
         <ul>
         <li>
+<<<<<<< HEAD
             <a href="{{ path('news_link_new') }}">
+=======
+            <a href="{{ path('news_new') }}">
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
                 Create a new entry
             </a>
         </li>

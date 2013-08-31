@@ -191,7 +191,7 @@ class News
     /**
      * Get newsCategory
      *
-     * @return NewsCategory 
+     * @return NewsCategory
      */
     public function getNewsCategory()
     {
