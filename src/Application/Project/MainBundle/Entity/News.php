@@ -3,9 +3,12 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
 use Application\Project\MainBundle\Entity\NewsLink;
 use Application\Project\MainBundle\Entity\NewsCategory;
+=======
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
 
 /**
  * News
@@ -62,6 +65,7 @@ class News
      */
     private $newsCategory;
 
+<<<<<<< HEAD
     /**
      * @ORM\OneToMany(targetEntity="NewsLink", mappedBy="news", cascade={"all"})
      */
@@ -72,6 +76,9 @@ class News
         $this->newsLinks = new ArrayCollection();
         $this->pubDate = new \DateTime('now');
     }
+=======
+
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
 
     /**
      * Get id
@@ -178,10 +185,17 @@ class News
     /**
      * Set newsCategory
      *
+<<<<<<< HEAD
      * @param NewsCategory $newsCategory
      * @return News
      */
     public function setNewsCategory(NewsCategory $newsCategory = null)
+=======
+     * @param \Application\Project\MainBundle\Entity\NewsCategory $newsCategory
+     * @return News
+     */
+    public function setNewsCategory(\Application\Project\MainBundle\Entity\NewsCategory $newsCategory = null)
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
     {
         $this->newsCategory = $newsCategory;
     
@@ -191,12 +205,17 @@ class News
     /**
      * Get newsCategory
      *
+<<<<<<< HEAD
      * @return NewsCategory 
+=======
+     * @return \Application\Project\MainBundle\Entity\NewsCategory 
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      */
     public function getNewsCategory()
     {
         return $this->newsCategory;
     }
+<<<<<<< HEAD
 
     /**
      * Add newsLinks
@@ -230,4 +249,6 @@ class News
     {
         return $this->newsLinks;
     }
+=======
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
 }

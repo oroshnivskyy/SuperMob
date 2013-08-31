@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+<<<<<<< HEAD
     <h1>Редактирование новости</h1>
     {% include 'TestNewsBundle:News:form.html.twig' with { 'form' : edit_form } %}
     <ul class="record_actions">
@@ -16,4 +17,18 @@
             </form>
         </li>
     </ul>
+=======
+    <h1>News edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('news') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
 {% endblock %}

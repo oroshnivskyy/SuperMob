@@ -13,7 +13,11 @@ use Application\Project\MainBundle\Form\NewsLinkType;
 /**
  * NewsLink controller.
  *
+<<<<<<< HEAD
  * @Route("/news_link")
+=======
+ * @Route("/news")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
  */
 class NewsLinkController extends Controller
 {
@@ -21,7 +25,11 @@ class NewsLinkController extends Controller
     /**
      * Lists all NewsLink entities.
      *
+<<<<<<< HEAD
      * @Route("/", name="news_link")
+=======
+     * @Route("/", name="news")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +46,11 @@ class NewsLinkController extends Controller
     /**
      * Creates a new NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/", name="news_link_create")
+=======
+     * @Route("/", name="news_create")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("POST")
      * @Template("MainBundle:NewsLink:new.html.twig")
      */
@@ -84,7 +96,11 @@ class NewsLinkController extends Controller
     /**
      * Displays a form to create a new NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/new", name="news_link_new")
+=======
+     * @Route("/new", name="news_new")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +118,11 @@ class NewsLinkController extends Controller
     /**
      * Finds and displays a NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_link_show")
+=======
+     * @Route("/{id}", name="news_show")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +147,11 @@ class NewsLinkController extends Controller
     /**
      * Displays a form to edit an existing NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}/edit", name="news_link_edit")
+=======
+     * @Route("/{id}/edit", name="news_edit")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -172,7 +196,11 @@ class NewsLinkController extends Controller
     /**
      * Edits an existing NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_link_update")
+=======
+     * @Route("/{id}", name="news_update")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("PUT")
      * @Template("MainBundle:NewsLink:edit.html.twig")
      */
@@ -205,7 +233,11 @@ class NewsLinkController extends Controller
     /**
      * Deletes a NewsLink entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_link_delete")
+=======
+     * @Route("/{id}", name="news_delete")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

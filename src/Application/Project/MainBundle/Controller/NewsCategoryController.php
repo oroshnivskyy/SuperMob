@@ -13,7 +13,11 @@ use Application\Project\MainBundle\Form\NewsCategoryType;
 /**
  * NewsCategory controller.
  *
+<<<<<<< HEAD
  * @Route("/news_category")
+=======
+ * @Route("/news")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
  */
 class NewsCategoryController extends Controller
 {
@@ -21,7 +25,11 @@ class NewsCategoryController extends Controller
     /**
      * Lists all NewsCategory entities.
      *
+<<<<<<< HEAD
      * @Route("/", name="news_category")
+=======
+     * @Route("/", name="news")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +46,11 @@ class NewsCategoryController extends Controller
     /**
      * Creates a new NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/", name="news_category_create")
+=======
+     * @Route("/", name="news_create")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("POST")
      * @Template("MainBundle:NewsCategory:new.html.twig")
      */
@@ -84,7 +96,11 @@ class NewsCategoryController extends Controller
     /**
      * Displays a form to create a new NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/new", name="news_category_new")
+=======
+     * @Route("/new", name="news_new")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +118,11 @@ class NewsCategoryController extends Controller
     /**
      * Finds and displays a NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_category_show")
+=======
+     * @Route("/{id}", name="news_show")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +147,11 @@ class NewsCategoryController extends Controller
     /**
      * Displays a form to edit an existing NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}/edit", name="news_category_edit")
+=======
+     * @Route("/{id}/edit", name="news_edit")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("GET")
      * @Template()
      */
@@ -172,7 +196,11 @@ class NewsCategoryController extends Controller
     /**
      * Edits an existing NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_category_update")
+=======
+     * @Route("/{id}", name="news_update")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("PUT")
      * @Template("MainBundle:NewsCategory:edit.html.twig")
      */
@@ -205,7 +233,11 @@ class NewsCategoryController extends Controller
     /**
      * Deletes a NewsCategory entity.
      *
+<<<<<<< HEAD
      * @Route("/{id}", name="news_category_delete")
+=======
+     * @Route("/{id}", name="news_delete")
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

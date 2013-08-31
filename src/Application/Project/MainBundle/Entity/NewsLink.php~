@@ -46,6 +46,7 @@ class NewsLink
     private $news;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -126,3 +127,6 @@ class NewsLink
         return $this->news;
     }
 }
+=======
+}
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
