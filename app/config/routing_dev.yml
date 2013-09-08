@@ -12,3 +12,8 @@ _configurator:
 
 _main:
     resource: routing.yml
+
+main_anotation:
+    resource: "@MainBundle/Controller/"
+    type:     annotation
+    prefix: /

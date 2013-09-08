@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NewsLink</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ entity.url }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ entity.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+<<<<<<< HEAD
+        <a href="{{ path('news_link') }}">
+=======
+        <a href="{{ path('news') }}">
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
+            Back to the list
+        </a>
+    </li>
+    <li>
+<<<<<<< HEAD
+        <a href="{{ path('news_link_edit', { 'id': entity.id }) }}">
+=======
+        <a href="{{ path('news_edit', { 'id': entity.id }) }}">
+>>>>>>> 088c128b5d3c8fc55bd8fc171363dc03b4423771
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

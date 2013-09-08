@@ -95,3 +95,6 @@ services:
         arguments:
             - @sonata.admin.pool
             - %sonata.user.form.type.security_roles.supported_roles%
+sonata_admin:
+    templates:
+        edit:    MainBundle:CRUD:edit.html.twig
