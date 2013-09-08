@@ -3,6 +3,7 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * NewsLink
@@ -25,6 +26,7 @@ class NewsLink
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     * @Assert\Regex("/^\w+$/")
      */
     private $url;
 

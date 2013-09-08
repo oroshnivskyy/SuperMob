@@ -3,12 +3,14 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Page
  *
- * @ORM\Table()
+ * @ORM\Table(name="page")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Page
 {
@@ -32,6 +34,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\Regex("/^\w+$/")
      */
     private $url;
 
@@ -53,13 +56,14 @@ class Page
      * @var string
      *
      * @ORM\Column(name="text", type="text")
+     * @Assert\NotBlank
      */
     private $text;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="status", type="smallint")
+     * @ORM\Column(name="status", type="boolean")
      */
     private $status;
 
@@ -240,5 +244,13 @@ class Page
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->setCreatedAt(new \DateTime());
     }
 }
