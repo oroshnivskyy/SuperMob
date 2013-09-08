@@ -25,14 +25,6 @@ class NewsAdmin extends Admin
         //Создаем новый экземпляр редактируемой сущности
         $emptyObj = $this->getNewInstance();
 
-        //Создаем форму, которая описана в методе сonfigureFormFields, привязываем к ней пустой объект
-        //наполняем пустой объект данными из запроса - это позволяет добиться того, что
-        //порядок привязанных NewsLink будет таким, как определено в html-форме
-        //(учитывая возможные перемещения строк таблицы с полями редактирования NewsLink)
-
-        //В отличии от порядка записей NewsLink редактируемого объекта - он такой, как возвращает Doctrine
-        $this->getForm()->setData($emptyObj)->bindRequest($this->getRequest());
-
         $newLinkPos = array();
         //Запоминаем положение NewsLink
         foreach ($emptyObj->getNewsLinks() as $link) $newLinkPos[] = $link->getUrl();
