@@ -1,0 +1,22 @@
+services:
+    main.news.admin.news:
+        class: Application\Project\MainBundle\Admin\NewsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Новости", label: "Новости" }
+        arguments:
+            - Application\Project\MainBundle\Entity\News
+            - SonataAdminBundle:CRUD
+    main.news.admin.newsLink:
+        class: Application\Project\MainBundle\Admin\NewsLinkAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        arguments:
+            - Application\Project\MainBundle\Entity\NewsLink
+            - SonataAdminBundle:CRUD
+    main.news.admin.newsCategory:
+        class: Application\Project\MainBundle\Admin\NewsCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Новости", label: "Категории новостей" }
+        arguments:
+            - Application\Project\MainBundle\Entity\NewsCategory
+            - SonataAdminBundle:CRUD

@@ -57,7 +57,7 @@ class News
      *
      * @ORM\ManyToOne(targetEntity="NewsCategory")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="news_category_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="news_category_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $newsCategory;
