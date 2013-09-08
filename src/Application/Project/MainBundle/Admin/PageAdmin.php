@@ -3,6 +3,7 @@ namespace Application\Project\MainBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 
 class PageAdmin extends Admin
 {
@@ -21,6 +22,22 @@ class PageAdmin extends Admin
             ->add('title', null, array('label' => 'Заголовок'))
             ->add('description', 'textarea', array('label' => 'Описание'))
             ->add('text', null, array('label' => 'Текст', 'attr' => array('class' => 'ckeditor')))
-            ->add('status', 'checkbox', array('label' => 'Статус', 'required'  => false));
+            ->add('status', 'checkbox', array('label' => 'Отображать на главной', 'required'  => false));
+    }
+
+    /**
+     * Конфигурация списка записей
+     *
+     * @param \Sonata\AdminBundle\Datagrid\ListMapper $listMapper
+     * @return void
+     */
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('id')
+            ->addIdentifier('name', null, array('label' => 'Название'))
+            ->addIdentifier('title', null, array('label' => 'Заголовок'))
+            ->add('url', null, array('label' => 'URL'))
+            ->add('status', null, array('label' => 'Отображается на главной'));
     }
 }
