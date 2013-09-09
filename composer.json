@@ -27,8 +27,8 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
 
-        "vich/uploader-bundle": "dev-master",
-        "knplabs/knp-gaufrette-bundle" : "dev-master"
+        "vich/uploader-bundle": "0.9.*",
+        "knplabs/knp-gaufrette-bundle" : "0.1.*"
     },
     "scripts": {
         "post-install-cmd": [
