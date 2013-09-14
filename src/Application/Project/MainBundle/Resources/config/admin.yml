@@ -23,11 +23,19 @@ services:
             - ~
             - Application\Project\MainBundle\Entity\NewsCategory
             - SonataAdminBundle:CRUD
-    main.news.admin:
+    main.pages.admin:
         class: Application\Project\MainBundle\Admin\PageAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Страницы", label: "Страницы" }
         arguments:
             - ~
             - Application\Project\MainBundle\Entity\Page
+            - SonataAdminBundle:CRUD
+    main.slider.admin:
+        class: Application\Project\MainBundle\Admin\SliderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Слайдер", label: "Слайдер" }
+        arguments:
+            - ~
+            - Application\Project\MainBundle\Entity\Slider
             - SonataAdminBundle:CRUD

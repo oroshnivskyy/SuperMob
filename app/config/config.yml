@@ -84,6 +84,7 @@ sonata_user:
     
 parameters:
     sonata.user.form.type.security_roles.supported_roles: [ROLE_ADMIN, ROLE_USER, ROLE_MANAGER]
+    slider_upload_dir: /uploads/slider
 services:
     sonata.user.admin.group:
           abstract: true
