@@ -4,8 +4,6 @@ imports:
 
 framework:
     #esi:             ~
-    session:
-        save_path: "%kernel.root_dir%/sessions/"
     translator:      ~
     secret:          %secret%
     router:
