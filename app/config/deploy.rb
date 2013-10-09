@@ -5,7 +5,7 @@ set :deploy_to,   "/var/www/web/supermobfreebi/htdocs/#{application}"
 set :app_path,    "app"
 set :shared_files,      ["app/config/parameters.yml"]
 set :web_path, "www"
-set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
+set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor", app_path + "/sessions"]
 set :use_composer, true
 set :dump_assetic_assets, true
 set :deploy_via, :remote_cache
