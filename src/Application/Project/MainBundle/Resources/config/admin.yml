@@ -39,3 +39,19 @@ services:
             - ~
             - Application\Project\MainBundle\Entity\Slider
             - SonataAdminBundle:CRUD
+    main.content.admin:
+        class: Application\Project\MainBundle\Admin\ContentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Сервисы", label: "Контент" }
+        arguments:
+            - ~
+            - Application\Project\MainBundle\Entity\Content
+            - SonataAdminBundle:CRUD
+    main.service.admin:
+        class: Application\Project\MainBundle\Admin\ServiceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Сервисы", label: "Сервисы" }
+        arguments:
+            - ~
+            - Application\Project\MainBundle\Entity\Service
+            - SonataAdminBundle:CRUD
