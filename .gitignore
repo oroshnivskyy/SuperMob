@@ -11,7 +11,7 @@
 /vendor/
 /bin/
 /composer.phar
-/www/uploads/*
+/www/uploads/
 
 # Configuration files
 /app/config/parameters.yml
