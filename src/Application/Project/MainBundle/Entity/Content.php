@@ -80,6 +80,7 @@ class Content
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=500)
+     * @Assert\Url()
      */
     private $url;
 
@@ -102,6 +103,10 @@ class Content
     private $file;
 
     private $uploadRootDir;
+    
+    public function __construct(){
+        $this->setCode(uniqid('code-'));
+    }
 
     /**
      * Get id
@@ -327,6 +332,7 @@ class Content
      */
     public function setFile( UploadedFile $file = null ){
         $this->file = $file;
+        $this->image = isset($file)?$file->getBasename():$this->image;
     }
 
     /**
@@ -369,5 +375,13 @@ class Content
 
     protected function getUploadRootDir(){
         return $this->uploadRootDir;
+    }
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage(){
+        return $this->image;
     }
 }

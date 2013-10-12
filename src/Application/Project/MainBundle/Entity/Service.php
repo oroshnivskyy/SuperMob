@@ -5,6 +5,7 @@ namespace Application\Project\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Application\Project\MainBundle\Entity\Content;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Service
@@ -48,6 +49,7 @@ class Service
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=500)
+     * @Assert\Url()
      */
     private $url;
 
