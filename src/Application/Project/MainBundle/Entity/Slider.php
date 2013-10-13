@@ -74,7 +74,41 @@ class Slider{
 
     private $uploadRootDir;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="date", nullable=true)
+     */
+    private $updatedAt;
+    /**
+     * Set pubDate
+     *
+     * @param \DateTime $pubDate
+     * @return News
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
+        return $this;
+    }
+
+    /**
+     * Get pubDate
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PostLoad
+     */
+    public function updatedAt(){
+        $this->setUpdatedAt(new \DateTime());
+    }
     /**
      * Get id
      *
@@ -229,6 +263,10 @@ class Slider{
     }
 
     public function upload(){
+        $uploadedFile = $this->getFile();
+        if(!isset($uploadedFile)){
+            return;
+        }
         if ( !$this->getUploadRootDir() ){
             throw new ValidatorException( 'Upload Root dir not set' );
         }
