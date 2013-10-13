@@ -55,3 +55,20 @@ services:
             - ~
             - Application\Project\MainBundle\Entity\Service
             - SonataAdminBundle:CRUD
+            - SonataAdminBundle:CRUD
+    main.operator.admin:
+        class: Application\Project\MainBundle\Admin\OperatorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Коды пополнения", label: "Операторы" }
+        arguments:
+            - ~
+            - Application\Project\MainBundle\Entity\Operator
+            - SonataAdminBundle:CRUD
+    main.code.admin:
+            class: Application\Project\MainBundle\Admin\CodeAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Коды пополнения", label: "Коды пополнения" }
+            arguments:
+                - ~
+                - Application\Project\MainBundle\Entity\Code
+                - SonataAdminBundle:CRUD
