@@ -3,12 +3,14 @@
 namespace Application\Project\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Code
  *
  * @ORM\Table(name="code")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Code
 {
@@ -25,6 +27,12 @@ class Code
      * @var integer
      *
      * @ORM\Column(name="code", type="integer")
+     * @Assert\Length(
+     *      min = "16",
+     *      max = "16",
+     *      minMessage = "Code name must be at least {{ limit }} characters length",
+     *      maxMessage = "Code name cannot be longer than {{ limit }} characters length"
+     * )
      */
     private $code;
 
@@ -178,5 +186,13 @@ class Code
     public function getOperator()
     {
         return $this->operator;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->setCreatedAt(new \DateTime());
     }
 }

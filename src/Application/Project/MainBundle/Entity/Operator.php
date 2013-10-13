@@ -38,6 +38,7 @@ class Operator
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=500, nullable=true)
+     * @Assert\Url()
      */
     private $url;
 
