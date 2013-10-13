@@ -74,6 +74,8 @@ class Slider{
 
     private $uploadRootDir;
 
+    const STATUS_ON = true;
+    const STATUS_OFF = false;
 
     /**
      * Get id
