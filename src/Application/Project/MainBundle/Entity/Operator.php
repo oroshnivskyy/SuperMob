@@ -74,7 +74,41 @@ class Operator
      * @ORM\OneToMany(targetEntity="Code", mappedBy="operator")
      */
     private $codes;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="date", nullable=true)
+     */
+    private $updatedAt;
+    /**
+     * Set pubDate
+     *
+     * @param \DateTime $pubDate
+     * @return News
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
+        return $this;
+    }
+
+    /**
+     * Get pubDate
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PostLoad
+     */
+    public function updatedAt(){
+        $this->setUpdatedAt(new \DateTime());
+    }
     public function __construct() {
         $this->codes = new ArrayCollection();
     }
@@ -221,11 +255,14 @@ class Operator
     }
 
     public function upload(){
+        $uploadedFile = $this->getFile();
+        if(!isset($uploadedFile)){
+            return;
+        }
         if ( !$this->getUploadRootDir() ){
             throw new ValidatorException( 'Upload Root dir not set' );
         }
 
-        $uploadedFile = $this->getFile();
         $fileName = sha1( uniqid( mt_rand(), true ) ) . '.' . $uploadedFile->guessExtension();
         $uploadedFile->move(
             $this->getUploadRootDir(),
