@@ -1,3 +1,7 @@
+payment:
+    resource: "@PaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+
 project_main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /

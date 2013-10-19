@@ -1,0 +1,14 @@
+parameters:
+#    payment.example.class: Rosh\PaymentBundle\Example
+
+services:
+    payment.mainpay:
+        class: Rosh\PaymentBundle\Service\MainPay
+        arguments:
+            - @doctrine
+            - @templating
+        calls:
+            - [ setParameters, ["%payment.mainpay.url%", "%payment.mainpay.formKey%", "%payment.mainpay.image%", "%payment.mainpay.commission%", "%payment.mainpay.formMethod%", "%payment.mainpay.templatePath%", "%payment.mainpay.apiKey%"] ]
+#    payment.example:
+#        class: %payment.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

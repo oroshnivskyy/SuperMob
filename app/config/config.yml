@@ -93,6 +93,13 @@ parameters:
         ru: 1
         ua: 2
         bu: 3
+    payment.mainpay.url: https://partner.mainpay.ru/a1lite/input/
+    payment.mainpay.formKey: "pEpq3aPefG0SwBRWcrgNZvMl3X3HnfrsC+K4KszUJkc="
+    payment.mainpay.apiKey: "7932180235768b5f71a73a0b9fa3aab0"
+    payment.mainpay.image: https://partner.mainpay.ru/gui/images/a1lite_buttons/button_small.png
+    payment.mainpay.commission: abonent
+    payment.mainpay.formMethod: POST
+    payment.mainpay.templatePath: PaymentBundle:Base:mainpay.html.twig
 services:
     sonata.user.admin.group:
           abstract: true
