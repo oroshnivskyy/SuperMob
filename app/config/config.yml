@@ -79,6 +79,9 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 sonata_user:
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group
     security_acl: true
     manager_type: orm # can be orm or mongodb
     
