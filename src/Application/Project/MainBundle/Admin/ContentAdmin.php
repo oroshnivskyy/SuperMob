@@ -35,7 +35,7 @@ class ContentAdmin extends Admin
         $fileFieldOptions = array('label' => 'Картинка', 'required' => $content->getId()?false:true);
         $webPath = $this->getConfigurationPool()->getContainer()->getParameter('content_upload_dir');
         if ($content && ($imageName = $content->getImage())) {
-            $fileFieldOptions['help'] = '<img src="'.$webPath.'/'.$imageName.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="'.$webPath.'/'.$imageName.'" class="admin-preview" style="max-width:150px"/>';
         }
         $formMapper
             ->add('name', null, array('label' => 'Название', 'required' => true))

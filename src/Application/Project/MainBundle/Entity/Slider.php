@@ -74,16 +74,19 @@ class Slider{
 
     private $uploadRootDir;
 
+    const STATUS_ON = true;
+    const STATUS_OFF = false;
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updatedAt", type="date", nullable=true)
      */
     private $updatedAt;
+    
     /**
-     * Set pubDate
+     * Set updatedAt
      *
-     * @param \DateTime $pubDate
+     * @param \DateTime $updatedAt
      * @return News
      */
     public function setUpdatedAt($updatedAt)
@@ -94,7 +97,7 @@ class Slider{
     }
 
     /**
-     * Get pubDate
+     * Get updatedAt
      *
      * @return \DateTime
      */
