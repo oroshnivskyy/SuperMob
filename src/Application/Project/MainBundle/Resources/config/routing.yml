@@ -1,3 +1,11 @@
 homepage:
     pattern:  /
     defaults: { _controller: MainBundle:Main:index }
+
+category_show:
+    pattern:  /category/{url}
+    defaults: { _controller: MainBundle:Page:category }
+
+page_show:
+    pattern:  /{url}
+    defaults: { _controller: MainBundle:Page:show }

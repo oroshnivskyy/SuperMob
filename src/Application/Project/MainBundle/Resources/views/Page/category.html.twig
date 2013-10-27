@@ -1,42 +1,16 @@
 {% extends '::base.html.twig' %}
-
 {% block body %}
-    {% if sliders|length > 0 %}
-        <!-- Carousel
-        ================================================== -->
-        <div id="myCarousel" class="carousel slide">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                {% if sliders|length > 1 %}
-                    {% for i in 0..sliders|length %}
-                        <li data-target="#myCarousel" data-slide-to="{{ i }}" {% if i == 0 %}class="active"{% endif %}></li>
-                    {% endfor %}
-                {% endif %}
-            </ol>
-            <div class="carousel-inner">
-                {% for item in sliders %}
-                    <div class="item active">
-                        <a href="{{ item.url }}">
-                            <img src="{{ webPathSlider }}/{{ item.image }}" alt="First slide">
-                        </a>
-                        {#<div class="container">#}
-                            {#<div class="carousel-caption">#}
-                                {#<h1>Example headline.</h1>#}
-                                {#<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>#}
-                                {#<p><a class="btn btn-large btn-primary" href="#">Sign up today</a></p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    </div>
-                {% endfor %}
-            </div>
-            {% if sliders|length > 1 %}
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            {% endif %}
-        </div><!-- /.carousel -->
-    {% endif %}
-
     <div class="container marketing">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">{{ entity.name }}</h2>
+                {#<p class="lead">{{ entity.text }}</p>#}
+            </div>
+            {#<div class="col-md-5">#}
+                {#<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
+            {#</div>#}
+        </div>
+        <hr class="featurette-divider">
         {% for item in contents %}
             <div class="col-lg-4">
                 {% if item.image is null %}
@@ -52,14 +26,5 @@
         <div class="row">
         </div>
         <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-            </div>
-        </div>
-   </div>
+    </div>
 {% endblock %}

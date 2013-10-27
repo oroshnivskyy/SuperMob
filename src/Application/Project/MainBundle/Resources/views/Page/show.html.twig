@@ -1,56 +1,15 @@
 {% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Page</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ entity.url }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ entity.text }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ entity.status }}</td>
-            </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('page') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('page_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block body %}
+    <div class="container marketing">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">{{ entity.name }}</h2>
+                <p class="lead">{{ entity.text }}</p>
+            </div>
+            {#<div class="col-md-5">#}
+                {#<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
+            {#</div>#}
+        </div>
+        <hr class="featurette-divider">
+    </div>
 {% endblock %}
