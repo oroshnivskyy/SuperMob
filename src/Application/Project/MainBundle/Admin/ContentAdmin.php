@@ -48,6 +48,8 @@ class ContentAdmin extends Admin
             ->add('price', null, array('label' => 'Цена', 'required'  => true))
             ->add('service', 'entity', array('label' => 'Сервис', 'required'  => true, 'class'=>'MainBundle:Service',
                                              'property'=>'name'))
+            ->add('category', 'entity', array('label' => 'Категория', 'required'  => true, 'class'=>'MainBundle:ContentCategory',
+                'property'=>'name'))
             ->add('file', 'file', $fileFieldOptions);
     }
 

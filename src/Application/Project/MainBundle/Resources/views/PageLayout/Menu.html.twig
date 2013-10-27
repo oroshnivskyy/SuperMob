@@ -1,0 +1,44 @@
+<ul class="nav navbar-nav">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Главная <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('page_show', {'url':pages['about'].url}) }}">{{ pages['about'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['why_we'].url}) }}">{{ pages['why_we'].name }}</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Решения <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('page_show', {'url':pages['payment_card'].url}) }}">{{ pages['payment_card'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['how_pay'].url}) }}">{{ pages['how_pay'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['for_partners'].url}) }}">{{ pages['for_partners'].name }}</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Пакеты и мероприятия <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('page_show', {'url':pages['info_content_packs'].url}) }}">{{ pages['info_content_packs'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['info_mobile_packs'].url}) }}">{{ pages['info_mobile_packs'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['internet_packs'].url}) }}">{{ pages['internet_packs'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['info_packs_incomming'].url}) }}">{{ pages['info_packs_incomming'].name }}</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Магазин контента <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            {% for entity in categores %}
+                <li><a href="{{ path('category_show', {'url':entity.nameEn}) }}">{{ entity.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    {% if is_granted("ROLE_USER") %}
+        <li><a href="{{ path('sonata_user_profile_show') }}">Профаил</a></li>
+        <li><a href="{{ path('sonata_user_admin_security_logout') }}">Выйти</a></li>
+    {% else %}
+        <li><a href="{{ path('sonata_user_admin_security_login') }}">Войти</a></li>
+        <li><a href="/">Создать</a></li>
+    {% endif %}
+</ul>

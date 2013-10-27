@@ -18,8 +18,6 @@ class MainController extends Controller
         $sliders = $em->getRepository('MainBundle:Slider')->findBy(array());
         $contents = $em->getRepository('MainBundle:Content')->findBy(array('status'=>Slider::STATUS_ON));
 
-//        var_dump( $sliders );exit;
-
         return $this->render('MainBundle:Main:index.html.twig',
             array(
                 'sliders' => $sliders,

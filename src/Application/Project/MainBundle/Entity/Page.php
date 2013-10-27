@@ -75,6 +75,12 @@ class Page
     private $createdAt;
 
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->status = true;
+    }
+
     /**
      * Get id
      *

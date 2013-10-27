@@ -91,9 +91,15 @@ class Content
     private $service;
 
     /**
+     * @ORM\ManyToOne(targetEntity="ContentCategory", inversedBy="contents")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -103,16 +109,18 @@ class Content
     private $file;
 
     private $uploadRootDir;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updatedAt", type="date", nullable=true)
      */
     private $updatedAt;
+
     /**
-     * Set pubDate
+     * Set updatedAt
      *
-     * @param \DateTime $pubDate
+     * @param \DateTime $updatedAt
      * @return News
      */
     public function setUpdatedAt($updatedAt)
@@ -421,5 +429,28 @@ class Content
      */
     public function getImage(){
         return $this->image;
+    }
+
+    /**
+     * Get category
+     *
+     * @return ContentCategory|NULL
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @param ContentCategory $category
+     * @return Content
+     */
+    public function setCategory(ContentCategory $category)
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }
