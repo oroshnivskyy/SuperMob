@@ -7,5 +7,5 @@ category_show:
     defaults: { _controller: MainBundle:Page:category }
 
 page_show:
-    pattern:  /{url}
+    pattern:  /page/{url}
     defaults: { _controller: MainBundle:Page:show }

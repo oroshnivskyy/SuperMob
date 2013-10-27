@@ -50,5 +50,43 @@
         <script src="{{ asset('bundles/main/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/main/js/holder.js') }}"></script>
         {% block javascripts %}{% endblock %}
+        <!-- Modal -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="/login_check" method="post">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Авторизация</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" name="_csrf_token" value="9b26796f979810a85c385d5396c760d5d924f4b5">
+
+                            <div class="control-group">
+                                <label for="username" class="control-label">Имя пользователя:</label>
+                                <div class="controls"><input type="text" id="username" name="_username" value="" required="required"></div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label for="password" class="control-label">Пароль:</label>
+                                <div class="controls"><input type="password" id="password" name="_password" required="required"></div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="remember_me">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                                    Запомнить меня
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                            <input type="submit" id="_submit" name="_submit" class="btn btn-primary" value="Войти">
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </body>
 </html>

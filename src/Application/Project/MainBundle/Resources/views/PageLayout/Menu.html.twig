@@ -36,9 +36,9 @@
 <ul class="nav navbar-nav navbar-right">
     {% if is_granted("ROLE_USER") %}
         <li><a href="{{ path('sonata_user_profile_show') }}">Профаил</a></li>
-        <li><a href="{{ path('sonata_user_admin_security_logout') }}">Выйти</a></li>
+        <li><a href="/logout">Выйти</a></li>
     {% else %}
-        <li><a href="{{ path('sonata_user_admin_security_login') }}">Войти</a></li>
+        <li><a data-toggle="modal" href="#login">Войти</a></li>
         <li><a href="/">Создать</a></li>
     {% endif %}
 </ul>
