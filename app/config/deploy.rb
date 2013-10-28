@@ -11,6 +11,7 @@ set :dump_assetic_assets, true
 set :deploy_via, :remote_cache
 set :ssh_options, { :forward_agent => true }
 set :branch, "master"
+set :copy_exclude, [".git", "spec"]
 
 set :repository,  "https://github.com/oroshnivskyy/SuperMob"
 set :scm,         :git
