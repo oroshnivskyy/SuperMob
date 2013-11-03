@@ -11,6 +11,9 @@
                 {% endif %}
             </div>
             <div class="col-md-5">
+                <a href="#" class="btn btn-success">Купить за {{ entity.price }}</a>
+                <br/>
+                <br/>
                 {% if entity.image is null %}
                     <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
                 {% else %}
