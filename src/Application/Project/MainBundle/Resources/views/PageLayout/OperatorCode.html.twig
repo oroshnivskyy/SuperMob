@@ -1,0 +1,6 @@
+<script>
+    var ar = [];
+    {% for entity in entities %}
+        ar[{{ entity.country }}] = {id: {{ entity.id }}, code: {{ entity.name }}};
+    {% endfor %}
+</script>

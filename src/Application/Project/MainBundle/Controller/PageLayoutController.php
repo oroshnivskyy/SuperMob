@@ -48,4 +48,19 @@ class PageLayoutController extends Controller
             'csrf_token' => $csrf_token
         );
     }
+
+    /**
+     * @Template()
+     */
+    public function operatorCodeAction()
+    {
+        $array = array();
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('MainBundle:Operator')->findAll();
+
+        return array(
+            'pages' => $array,
+            'entities' => $entities
+        );
+    }
 }
