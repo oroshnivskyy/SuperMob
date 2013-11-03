@@ -6,6 +6,8 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use FOS\UserBundle\Model\GroupInterface;
 use Doctrine\ORM\Mapping as ORM;
 
+use Application\Project\MainBundle\Entity\Operator;
+
 /**
  * @ORM\HasLifecycleCallbacks()
  */
@@ -30,6 +32,17 @@ class User extends BaseUser
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $groups;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Operator")
+     * @ORM\JoinColumn(name="operator_id", referencedColumnName="id")
+     */
+    private $operator;
+
+    /**
+     * @var integer
+     */
+    private $country;
 
     /**
      * Constructor
@@ -99,6 +112,50 @@ class User extends BaseUser
     public function getUserCard()
     {
         return $this->userCard;
+    }
+
+    /**
+     * Set Operator
+     *
+     * @param Operator $operator
+     * @return Code
+     */
+    public function setOperator(Operator $operator)
+    {
+        $this->operator = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Get operator
+     *
+     * @return Operator|NULL
+     */
+    public function getOperator()
+    {
+        return $this->operator;
+    }
+
+
+    /**
+     * Get country
+     *
+     * @return integer
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
     }
 
     /**

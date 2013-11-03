@@ -59,7 +59,7 @@ class Operator
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -74,17 +74,32 @@ class Operator
      * @ORM\OneToMany(targetEntity="Code", mappedBy="operator")
      */
     private $codes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OperatorCode", mappedBy="operator")
+     */
+    private $operatorCodes;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updatedAt", type="date", nullable=true)
      */
     private $updatedAt;
+
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTime('now');
+        $this->country = 1;
+        $this->codes = new ArrayCollection();
+        $this->operatorCodes = new ArrayCollection();
+    }
+
     /**
-     * Set pubDate
+     * Set updatedAt
      *
-     * @param \DateTime $pubDate
-     * @return News
+     * @param \DateTime $updatedAt
+     * @return Operator
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -108,9 +123,6 @@ class Operator
      */
     public function updatedAt(){
         $this->setUpdatedAt(new \DateTime());
-    }
-    public function __construct() {
-        $this->codes = new ArrayCollection();
     }
 
     /**
@@ -311,5 +323,28 @@ class Operator
     public function getCodes()
     {
         return $this->codes;
+    }
+
+    /**
+     * Set codes
+     *
+     * @param ArrayCollection $codes
+     * @return Operator
+     */
+    public function setOperatorCodes(ArrayCollection $codes)
+    {
+        $this->operatorCodes = $codes;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return ArrayCollection|array
+     */
+    public function getOperatorCodes()
+    {
+        return $this->operatorCodes;
     }
 }
