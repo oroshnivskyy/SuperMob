@@ -10,7 +10,9 @@
             <generator strategy="AUTO" />
         </id>
         <field name="userCard" column="user_card" type="bigint" />
-
+        <field name="country" column="country" type="integer" />
+        <many-to-one field="operator" target-entity="Application\Project\MainBundle\Entity\Operator">
+            <join-column name="operator_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
-
 </doctrine-mapping>

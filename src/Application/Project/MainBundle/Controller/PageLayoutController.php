@@ -34,4 +34,18 @@ class PageLayoutController extends Controller
         );
     }
 
+    /**
+     * @Template()
+     */
+    public function loginAction()
+    {
+        $array = array();
+        $em = $this->getDoctrine()->getManager();
+        $csrf_token = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
+
+        return array(
+            'pages' => $array,
+            'csrf_token' => $csrf_token
+        );
+    }
 }

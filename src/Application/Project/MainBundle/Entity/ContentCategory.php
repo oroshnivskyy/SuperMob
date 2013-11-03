@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * ContentCategory
  *
- * @ORM\Table()
+ * @ORM\Table(name="content_category")
  * @ORM\Entity
  */
 class ContentCategory

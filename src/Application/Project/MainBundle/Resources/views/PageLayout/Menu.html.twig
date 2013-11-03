@@ -35,10 +35,16 @@
 </ul>
 <ul class="nav navbar-nav navbar-right">
     {% if is_granted("ROLE_USER") %}
-        <li><a href="{{ path('sonata_user_profile_show') }}">Профаил</a></li>
-        <li><a href="{{ path('sonata_user_admin_security_logout') }}">Выйти</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Профаил <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('sonata_user_profile_show') }}">Просмотреть</a></li>
+                <li><a href="{{ path('sonata_user_profile_edit') }}">Редактировать</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
     {% else %}
-        <li><a href="{{ path('sonata_user_admin_security_login') }}">Войти</a></li>
-        <li><a href="/">Создать</a></li>
+        <li><a data-toggle="modal" href="#login">{{ 'link_login'|trans({}, 'SonataUserBundle') }}</a></li>
+        <li><a href="{{ path('fos_user_registration_register') }}">{{ 'link_register'|trans({}, 'SonataUserBundle') }}</a></li>
     {% endif %}
 </ul>
