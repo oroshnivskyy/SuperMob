@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Exception\ValidatorException;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\Collection;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -76,7 +77,7 @@ class Operator
     private $codes;
 
     /**
-     * @ORM\OneToMany(targetEntity="OperatorCode", mappedBy="operator")
+     * @ORM\OneToMany(targetEntity="OperatorCode", mappedBy="operator", cascade={"all"}, orphanRemoval=true)
      */
     private $operatorCodes;
 
@@ -331,7 +332,7 @@ class Operator
      * @param ArrayCollection $codes
      * @return Operator
      */
-    public function setOperatorCodes(ArrayCollection $codes)
+    public function setOperatorCodes(Collection $codes)
     {
         $this->operatorCodes = $codes;
 
@@ -346,5 +347,13 @@ class Operator
     public function getOperatorCodes()
     {
         return $this->operatorCodes;
+    }
+    
+    public function addOperatorCode(OperatorCode $code){
+        $this->operatorCodes->add($code);
+    }
+
+    public function removeOperatorCode(OperatorCode $code){
+        $this->operatorCodes->removeElement($code);
     }
 }

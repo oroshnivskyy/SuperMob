@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class OperatorCode
 {
+    const STATUS_REMOVED = false;
+    const STATUS_OK = true;
     /**
      * @var integer
      *
@@ -29,9 +31,9 @@ class OperatorCode
     private $code;
 
     /**
-     * @var integer
+     * @var bool
      *
-     * @ORM\Column(name="status", type="smallint")
+     * @ORM\Column(name="status", type="boolean")
      */
     private $status;
 
@@ -118,5 +120,9 @@ class OperatorCode
     public function getOperator()
     {
         return $this->operator;
+    }
+    
+    public function __construct(){
+        $this->setStatus(self::STATUS_OK);
     }
 }

@@ -43,6 +43,18 @@ class OperatorAdmin extends Admin
             ->add('url', null, array('label' => 'URL', 'required'  => true))
             ->add('status', null, array('label' => 'Активный', 'required'=>false))
             ->add('country', 'choice', array('label' => 'Страна', 'choices'   => $countries))
+            ->add('operatorCodes','sonata_type_collection', 
+                array(
+                     'required' => false,
+                     'by_reference' => false,
+                     'type_options' => array('delete' => false),
+                     'label' => 'Коды'
+                ),
+                array(
+                     'edit' => 'inline',
+                     'inline' => 'table',
+                     'allow_delete' => false
+                ))
             ->add('file', 'file', $fileFieldOptions);
     }
 
@@ -59,5 +71,20 @@ class OperatorAdmin extends Admin
             ->addIdentifier('name', null, array('label' => 'Название'))
             ->addIdentifier('url', null, array('label' => 'URL'))
             ->add('status', null, array('label' => 'Активный'));
+    }
+
+    public function prePersist($operator)
+    {
+        foreach ($operator->getOperatorCodes() as $code) {
+            $code->setOperator($operator);
+        }
+    }
+
+    public function preUpdate($operator)
+    {
+        foreach ($operator->getOperatorCodes() as $code) {
+            $code->setOperator($operator);
+        }
+        $operator->setOperatorCodes($operator->getOperatorCodes());
     }
 }
