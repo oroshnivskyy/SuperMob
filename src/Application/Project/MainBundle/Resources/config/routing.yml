@@ -13,3 +13,7 @@ page_show:
 product_show:
     pattern:  /product/{id}
     defaults: { _controller: MainBundle:Page:product }
+
+order_new:
+    pattern:  /order/new/{id_product}
+    defaults: { _controller: MainBundle:Order:new }
