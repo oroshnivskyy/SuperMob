@@ -93,6 +93,7 @@ parameters:
     slider_upload_dir: /uploads/images/slider
     content_upload_dir: /uploads/images/content
     operator_upload_dir: /uploads/images/operator
+    page_upload_dir: /uploads/images/pages
     types:
         link: 1
     countries:
