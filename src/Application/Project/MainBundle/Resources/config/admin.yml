@@ -47,7 +47,7 @@ services:
             - ~
             - Application\Project\MainBundle\Entity\Content
             - SonataAdminBundle:CRUD
-    main.news.admin.newsCategory:
+    main.news.admin.servicesCategory:
         class: Application\Project\MainBundle\Admin\ContentCategoryAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Сервисы", label: "Категории контента" }
