@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container marketing">
+        <div class="row featurette">
+            <div class="col-md-12">
+                <h2 class="featurette-heading" style="margin-top: 0px;">Покупка контента</h2>
+                <hr class="featurette-divider" style="margin: 0px 0px 30px 0px"/>
+                <h4 style="margin-top: 0px;">{{ entity.name }}</h4>
+                <div style="float: left; width: 150px;">
+                    {% if entity.image is null %}
+                        <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/100x100/auto" alt="Generic placeholder image">
+                    {% else %}
+                        <img class="featurette-image img-responsive" src="{{ webPathContent }}/{{ entity.image }}" alt="{{ entity.name }}">
+                    {% endif %}
+                </div>
+                <div>
+                    {{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: entity, email: user.email})) }}
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider"/>
+    </div>
+{% endblock %}

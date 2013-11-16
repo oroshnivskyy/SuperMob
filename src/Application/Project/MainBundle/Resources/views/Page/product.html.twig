@@ -3,17 +3,21 @@
     <div class="container marketing">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading" style="margin-top: 0px;">{{ entity.name }}</h2>
+                <h2 class="" style="margin-top: 0px;">{{ entity.name }}</h2>
+                <hr class="featurette-divider" style="margin-top: 0px;margin-bottom: 10px;">
                 {% if is_granted("ROLE_USER") %}
-                    <p class="lead">{{ entity.bigText }}</p>
+                    <p class="">{{ entity.bigText }}</p>
                 {% else %}
-                    <p class="lead">{{ entity.shortText }}</p>
+                    <p class="">{{ entity.shortText }}</p>
+                    <p>Что б получить дайный контент надо сначало <a href="{{ path('fos_user_registration_register') }}">зарегистрироваться</a> или <a data-toggle="modal" href="#login">войти</a> в сервис</p>
                 {% endif %}
             </div>
             <div class="col-md-5">
-                <a href="#" class="btn btn-success">Купить за {{ entity.price }}</a>
-                <br/>
-                <br/>
+                {% if is_granted("ROLE_USER") %}
+                    <a href="{{ path('order_new', {'id_product': entity.id}) }}" class="btn btn-success">Купить за {{ entity.price }}</a>
+                    <br/>
+                    <br/>
+                {% endif %}
                 {% if entity.image is null %}
                     <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
                 {% else %}
@@ -21,6 +25,5 @@
                 {% endif %}
             </div>
         </div>
-        <hr class="featurette-divider">
     </div>
 {% endblock %}

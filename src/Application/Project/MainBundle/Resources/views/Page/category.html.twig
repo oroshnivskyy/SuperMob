@@ -2,16 +2,16 @@
 {% block body %}
     <div class="container marketing">
         <h2>{{ entity.name }}</h2>
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">{{ entity.name }}</h2>
+        {#<div class="row featurette">#}
+            {#<div class="col-md-7">#}
+                {#<h2 class="featurette-heading">{{ entity.name }}</h2>#}
                 {#<p class="lead">{{ entity.text }}</p>#}
-            </div>
+            {#</div>#}
             {#<div class="col-md-5">#}
                 {#<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
             {#</div>#}
-        </div>
-        <hr class="featurette-divider">
+        {#</div>#}
+        <hr class="featurette-divider" style="margin-top: 0px;">
         {% for item in contents %}
             <div class="col-lg-4">
                 {% if item.image is null %}
@@ -19,9 +19,9 @@
                 {% else %}
                     <img class="img-circle" src="{{ webPathContent }}/{{ item.image }}" alt="Generic placeholder image" width="140" height="140">
                 {% endif %}
-                <h2>{{ item.name }}</h2>
+                <h3>{{ item.name }}</h3>
                 {#<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>#}
-                {{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: item, email: user.email})) }}
+                <a href="{{ path('product_show', {'id':item.id}) }}" class="btn btn-primary">Дальше</a>
             </div><!-- /.col-lg-4 -->
         {% endfor %}
         <div class="row">
