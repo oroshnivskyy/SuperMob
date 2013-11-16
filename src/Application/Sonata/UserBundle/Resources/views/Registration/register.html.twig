@@ -1,5 +1,8 @@
 {% extends "SonataUserBundle::layout.html.twig" %}
 
+{% use 'form_table_layout.html.twig' %}
+{% form_theme form _self %}
+
 {% block fos_user_content %}
 <div class="container marketing">
     <div class="row featurette">
@@ -8,4 +11,5 @@
         </div>
     </div>
 </div>
+{{ render(controller('MainBundle:PageLayout:OperatorCode')) }}
 {% endblock fos_user_content %}

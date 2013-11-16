@@ -1,0 +1,42 @@
+<script>
+    operatorController = function()
+    {
+        var ar = [];
+        var self = this;
+        this.init = function()
+        {
+            {% for entity in entities %}
+            ar[ar.length] = {id: {{ entity.id }}, name: '{{ entity.name }}', country: {{ entity.country }}};
+            {% endfor %}
+
+            $('#fos_user_registration_form_operator').val(0);
+
+            $('#form_registr input[type=radio]').click(function(){
+                self.setOperators(this);
+            });
+        }
+
+        this.setOperators = function(ele)
+        {
+            $('#operators').html('');
+            $.map(ar, function(val, k){
+                if ($(ele).val() == val.country) {
+                    $('#operators').append('<option value="'+val.id+'">'+val.name+'</option>');
+                }
+            });
+            self.setOperator();
+        }
+        this.setOperator = function()
+        {
+            $('#fos_user_registration_form_operator').val($('#operators').val());
+            if (!$('#fos_user_registration_form_operator').val()) {
+                $('#fos_user_registration_form_operator').val(0);
+            }
+        }
+    }
+
+    var operator = new operatorController();
+    $(function(){
+        operator.init();
+    });
+</script>

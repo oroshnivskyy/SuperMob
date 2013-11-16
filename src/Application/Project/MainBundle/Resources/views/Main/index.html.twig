@@ -2,10 +2,7 @@
 
 {% block body %}
     {% if sliders|length > 0 %}
-        <!-- Carousel
-        ================================================== -->
         <div id="myCarousel" class="carousel slide">
-            <!-- Indicators -->
             <ol class="carousel-indicators">
                 {% if sliders|length > 1 %}
                     {% for i in 0..sliders|length %}
@@ -33,7 +30,7 @@
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
             {% endif %}
-        </div><!-- /.carousel -->
+        </div>
     {% endif %}
 
     <div class="container marketing">
@@ -46,8 +43,8 @@
                 {% endif %}
                 <h2>{{ item.name }}</h2>
                 {#<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>#}
-                <p><a class="btn btn-default" href="{{ item.id }}">Купить</a></p>
-            </div><!-- /.col-lg-4 -->
+                <p><a class="btn btn-default" href="{{ path('product_show', {'id':item.id}) }}">Купить</a></p>
+            </div>
         {% endfor %}
         <div class="row">
         </div>

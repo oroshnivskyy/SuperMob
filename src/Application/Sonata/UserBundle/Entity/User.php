@@ -158,6 +158,17 @@ class User extends BaseUser
         return $this;
     }
 
+    public function getFormatingCard()
+    {
+        $card = substr($this->userCard, 0, 4).'-';
+        $card .= substr($this->userCard, 4, 4).'-';
+        $card .= substr($this->userCard, 8, 4).'-';
+        $card .= substr($this->userCard, 12, 4);
+
+
+        return $card;
+    }
+
     /**
      * @ORM\PrePersist
      */

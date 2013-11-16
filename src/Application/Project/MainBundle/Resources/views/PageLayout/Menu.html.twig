@@ -44,7 +44,7 @@
         </li>
         <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
     {% else %}
-        <li><a data-toggle="modal" href="#login">{{ 'link_login'|trans({}, 'SonataUserBundle') }}</a></li>
-        <li><a href="{{ path('fos_user_registration_register') }}">{{ 'link_register'|trans({}, 'SonataUserBundle') }}</a></li>
+        <li><a data-toggle="modal" href="#login">Вход</a></li>
+        <li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a></li>
     {% endif %}
 </ul>

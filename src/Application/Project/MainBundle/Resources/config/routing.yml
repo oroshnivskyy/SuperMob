@@ -9,3 +9,7 @@ category_show:
 page_show:
     pattern:  /page/{url}
     defaults: { _controller: MainBundle:Page:show }
+
+product_show:
+    pattern:  /product/{id}
+    defaults: { _controller: MainBundle:Page:product }

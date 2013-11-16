@@ -62,4 +62,27 @@ class PageController extends Controller
             'user' => $this->getUser()
         );
     }
+
+    /**
+     * @Method("GET")
+     * @Template()
+     */
+    public function productAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MainBundle:Content')->findOneById($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Невозможно найти такой продукт');
+        }
+
+        $webPath = $this->container->getParameter('slider_upload_dir');
+        $webPathContent = $this->container->getParameter('content_upload_dir');
+
+        return array(
+            'entity'      => $entity,
+            'webPathContent' => $webPathContent,
+            'webPathSlider' => $webPath
+        );
+    }
 }
