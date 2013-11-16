@@ -40,10 +40,10 @@ class MainPay{
         $parameters = $this->formParameters;
         $parameters[ 'purchaseName' ] = $purchaseName;
         $parameters[ 'orderId' ] = $order->getId();
-        $parameters[ 'cost' ] = $order->getCost();
+        $parameters[ 'cost' ] = $order->getPurchaseCost();
         $parameters[ 'defaultEmail' ] = $email;
 
-        return $this->templating->render( $this->templatePath, $parameters );
+        return $this->templating->renderResponse( $this->templatePath, $parameters );
     }
 
     public function processSuccess( Request $request ){

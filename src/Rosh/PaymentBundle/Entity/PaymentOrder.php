@@ -111,6 +111,7 @@ class PaymentOrder
 
     public function __construct(){
         $this->setStatus(self::STATUS_CREATED);
+        $this->setServiceTid("");
     }
 
 
@@ -158,6 +159,13 @@ class PaymentOrder
         $this->setPurchaseId($purchase->getid());
         $this->purchaseClass = get_class($purchase);
         $this->setPurchaseCost($purchase->getCost());
+        $this->setServicePurchaseName("");
+        $this->setServiceComment("");
+        $this->setServicePartnerId("");
+        $this->setServiceId("");
+        $this->setServiceType("");
+        $this->setServicePartnerIncome(0);
+        $this->setServiceSystemIncome(0);
         return $this;
     }
 
