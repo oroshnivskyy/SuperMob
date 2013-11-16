@@ -64,7 +64,7 @@ class MainPay{
 
         $check = md5(join('', array_values($servicePostParameters)).$this->apiKey);
         if($request->get( 'check' ) != $check){
-            throw new AuthenticationException();
+            throw new \Exception("Check failed");
         }
 
         if($servicePostParameters['test']==1){
@@ -74,7 +74,7 @@ class MainPay{
         /**
          * @var $order PaymentOrder
          */
-        $order = $this->doctrine->getRepository('PaymentBundle::PaymentOrder')
+        $order = $this->doctrine->getRepository('PaymentBundle:PaymentOrder')
             ->findOneById($servicePostParameters['order_id']);
 
         $order->setServiceTid($servicePostParameters['tid'])

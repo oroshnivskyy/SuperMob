@@ -1,14 +1,14 @@
 processor:
-    pattern:  /{paymentService}
+    pattern:  /processor/{paymentService}
     defaults: { _controller: PaymentBundle:Base:processor }
     methods:  [POST, GET]
 
 successful:
-    pattern:  /{paymentService}
+    pattern:  /successful/{paymentService}
     defaults: { _controller: PaymentBundle:Base:success }
     methods:  [GET]
 
 fail:
-    pattern:  /{paymentService}
+    pattern:  /fail/{paymentService}
     defaults: { _controller: PaymentBundle:Base:fail }
     methods:  [GET]

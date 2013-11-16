@@ -4,6 +4,7 @@ namespace Rosh\PaymentBundle\Controller;
 
 use Rosh\PaymentBundle\Entity\PaymentOrder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class BaseController extends Controller
