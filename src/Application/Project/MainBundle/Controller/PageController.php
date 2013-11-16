@@ -54,11 +54,14 @@ class PageController extends Controller
         $webPath = $this->container->getParameter('slider_upload_dir');
         $webPathContent = $this->container->getParameter('content_upload_dir');
 
+        $payment = $this->get('payment.mainpay');
         return array(
             'entity'      => $entity,
             'contents'    => $contents,
             'webPathContent' => $webPathContent,
-            'webPathSlider' => $webPath
+            'webPathSlider' => $webPath,
+            'paymentService' => $payment,
+            'user' => $this->getUser()
         );
     }
 

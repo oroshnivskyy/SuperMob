@@ -16,9 +16,14 @@ class PageAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+
+        if($this->getSubject()->getId()){
+            $formMapper->add('url', null, array('label' => 'URL', 'required' => true, 'disabled'=>true));
+        }else{
+            $formMapper->add('url', null, array('label' => 'URL', 'required' => true));
+        }
         $formMapper
             ->add('name', null, array('label' => 'Название', 'required' => true))
-            ->add('url', null, array('label' => 'URL', 'required' => true))
             ->add('title', null, array('label' => 'Заголовок'))
             ->add('description', 'textarea', array('label' => 'Описание'))
             ->add('text', null, array('label' => 'Текст', 'attr' => array('class' => 'ckeditor')))

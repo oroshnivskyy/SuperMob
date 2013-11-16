@@ -22,11 +22,11 @@ class MainPay{
     }
 
     public function setParameters( $url, $key, $image, $commission, $formMethod, $templatePath, $apiKey ){
-        $formParameters[ 'url' ] = $url;
-        $formParameters[ 'key' ] = $key;
-        $formParameters[ 'image' ] = $image;
-        $formParameters[ 'commission' ] = $commission;
-        $formParameters[ 'formMethod' ] = $formMethod;
+        $this->formParameters[ 'url' ] = $url;
+        $this->formParameters[ 'key' ] = $key;
+        $this->formParameters[ 'image' ] = $image;
+        $this->formParameters[ 'commission' ] = $commission;
+        $this->formParameters[ 'formMethod' ] = $formMethod;
         $this->templatePath = $templatePath;
         $this->apiKey = $apiKey;
     }
@@ -40,7 +40,7 @@ class MainPay{
         $parameters = $this->formParameters;
         $parameters[ 'purchaseName' ] = $purchaseName;
         $parameters[ 'orderId' ] = $order->getId();
-        $parameters[ 'cost' ] = $order->getCost();
+        $parameters[ 'cost' ] = $order->getPurchaseCost();
         $parameters[ 'defaultEmail' ] = $email;
 
         return $this->templating->renderResponse( $this->templatePath, $parameters );
