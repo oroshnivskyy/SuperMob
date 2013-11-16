@@ -453,4 +453,11 @@ class Content
 
         return $this;
     }
+
+    /**
+     * @return float
+     */
+    public function getCost(){
+        return $this->getPrice()/100;
+    }
 }
