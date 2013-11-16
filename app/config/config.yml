@@ -118,5 +118,6 @@ services:
             - @sonata.admin.pool
             - %sonata.user.form.type.security_roles.supported_roles%
 sonata_admin:
+    title: "Supermobfreebi Admin"
     templates:
         edit:    MainBundle:CRUD:edit.html.twig
