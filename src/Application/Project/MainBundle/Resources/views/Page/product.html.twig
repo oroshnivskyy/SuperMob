@@ -1,14 +1,15 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+    {{ render(controller('MainBundle:PageLayout:Slider')) }}
     <div class="container marketing">
         <div class="row featurette">
             <div class="col-md-7">
                 <h2 class="" style="margin-top: 0px;">{{ entity.name }}</h2>
                 <hr class="featurette-divider" style="margin-top: 0px;margin-bottom: 10px;">
                 {% if is_granted("ROLE_USER") %}
-                    <p class="">{{ entity.bigText }}</p>
+                    <p class="">{{ entity.bigText|raw }}</p>
                 {% else %}
-                    <p class="">{{ entity.shortText }}</p>
+                    <p class="">{{ entity.shortText|raw }}</p>
                     <p>Что б получить дайный контент надо сначало <a href="{{ path('fos_user_registration_register') }}">зарегистрироваться</a> или <a data-toggle="modal" href="#login">войти</a> в сервис</p>
                 {% endif %}
             </div>

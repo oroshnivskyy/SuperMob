@@ -27,12 +27,13 @@ class PageController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MainBundle:Page')->findOneByUrl($url);
+
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Page entity.');
         }
 
         return array(
-            'entity'      => $entity
+            'entity'      => $entity,
         );
     }
 
@@ -51,14 +52,12 @@ class PageController extends Controller
 
         $contents = $em->getRepository('MainBundle:Content')->findBy(array('category'=>$entity->getId(), 'status'=>true));
 
-        $webPath = $this->container->getParameter('slider_upload_dir');
         $webPathContent = $this->container->getParameter('content_upload_dir');
 
         return array(
             'entity'      => $entity,
             'contents'    => $contents,
             'webPathContent' => $webPathContent,
-            'webPathSlider' => $webPath,
             'user' => $this->getUser()
         );
     }
@@ -76,13 +75,11 @@ class PageController extends Controller
             throw $this->createNotFoundException('Невозможно найти такой продукт');
         }
 
-        $webPath = $this->container->getParameter('slider_upload_dir');
         $webPathContent = $this->container->getParameter('content_upload_dir');
 
         return array(
             'entity'      => $entity,
             'webPathContent' => $webPathContent,
-            'webPathSlider' => $webPath
         );
     }
 }

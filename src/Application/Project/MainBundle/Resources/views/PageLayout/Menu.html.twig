@@ -31,7 +31,7 @@
             {% endfor %}
         </ul>
     </li>
-
+    <li><a href="{{ path('news_list') }}">Новости</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
     {% if is_granted("ROLE_USER") %}

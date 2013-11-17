@@ -1,0 +1,31 @@
+{% if sliders|length > 0 %}
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            {% if sliders|length > 1 %}
+                {% for i in 0..sliders|length %}
+                    <li data-target="#myCarousel" data-slide-to="{{ i }}" {% if i == 0 %}class="active"{% endif %}></li>
+                {% endfor %}
+            {% endif %}
+        </ol>
+        <div class="carousel-inner">
+            {% for item in sliders %}
+                <div class="item active">
+                    <a href="{{ item.url }}">
+                        <img src="{{ webPathSlider }}/{{ item.image }}" alt="{{ item.image }}" style="margin: auto auto;">
+                    </a>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>{{ item.name }}</h1>
+                            <p>{{ item.text|raw }}</p>
+                            <p><a class="btn btn-large btn-primary" href="{{ item.url }}">{{ item.urlName }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if sliders|length > 1 %}
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        {% endif %}
+    </div>
+{% endif %}
