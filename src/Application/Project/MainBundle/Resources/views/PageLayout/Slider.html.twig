@@ -9,7 +9,7 @@
         </ol>
         <div class="carousel-inner">
             {% for item in sliders %}
-                <div class="item active">
+                <div class="item {% if loop.index == 1 %}active{% endif %}">
                     <a href="{{ item.url }}">
                         <img src="{{ webPathSlider }}/{{ item.image }}" alt="{{ item.image }}" style="margin: auto auto;">
                     </a>
