@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller('MainBundle:PageLayout:Slider')) }}
+    <div class="container marketing">
+        {% for entity in entities %}
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h2 class="featurette-heading" style="margin-top: 0px;">Новости</h2>
+                    <hr class="featurette-divider" style="margin-top: 0px; margin-bottom: 20px;"/>
+                    <h4 style="margin-top: 0px;">{{ entity.title }}</h4>
+                    <div style="width: 100%">
+                        <p style="text-align: justify;">{{ entity.announce }}</p>
+                    </div>
+                    <div style="display: block; width: 100%;">
+                        <span style="font-size: 12px;">Категория: <b>{{ entity.newsCategory.name }}</b></span>
+                        <span style="font-size: 12px;">Дата создания: <b>{{ entity.pubDate|date('d.m.Y') }}</b></span>
+                        <a style="float:right;" href="{{ path('news_show',{id:entity.id}) }}">Читать дальше</a>
+                    </div>
+                    <hr class="featurette-divider" style="margin: 0px 0px 20px 0px"/>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

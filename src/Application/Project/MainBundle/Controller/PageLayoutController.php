@@ -37,6 +37,24 @@ class PageLayoutController extends Controller
     /**
      * @Template()
      */
+    public function sliderAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $webPath = $this->container->getParameter('slider_upload_dir');
+        $webPathContent = $this->container->getParameter('content_upload_dir');
+
+        $sliders = $em->getRepository('MainBundle:Slider')->findBy(array());
+
+        return array(
+            'sliders' => $sliders,
+            'webPathContent' => $webPathContent,
+            'webPathSlider' => $webPath,
+        );
+    }
+
+    /**
+     * @Template()
+     */
     public function loginAction()
     {
         $array = array();

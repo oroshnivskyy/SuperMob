@@ -12,18 +12,16 @@ class MainController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $webPath = $this->container->getParameter('slider_upload_dir');
         $webPathContent = $this->container->getParameter('content_upload_dir');
 
-        $sliders = $em->getRepository('MainBundle:Slider')->findBy(array());
         $contents = $em->getRepository('MainBundle:Content')->findBy(array('status'=>Slider::STATUS_ON));
+        $entityPage = $em->getRepository('MainBundle:Page')->findOneByUrl('index');
 
         return $this->render('MainBundle:Main:index.html.twig',
             array(
-                'sliders' => $sliders,
                 'contents' => $contents,
                 'webPathContent' => $webPathContent,
-                'webPathSlider' => $webPath
+                'entityPage' => $entityPage
             ));
     }
 }

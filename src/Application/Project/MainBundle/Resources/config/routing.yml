@@ -17,3 +17,11 @@ product_show:
 order_new:
     pattern:  /order/new/{id_product}
     defaults: { _controller: MainBundle:Order:new }
+
+news_show:
+    pattern:  /news/{id}
+    defaults: { _controller: MainBundle:News:show }
+
+news_list:
+    pattern:  /news
+    defaults: { _controller: MainBundle:News:list }

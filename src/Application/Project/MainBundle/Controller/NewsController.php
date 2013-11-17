@@ -19,6 +19,41 @@ class NewsController extends Controller
 {
 
     /**
+     * @Method("GET")
+     * @Template()
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('MainBundle:News')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+
+
+    /**
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MainBundle:News')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find News entity.');
+        }
+
+        return array(
+            'entity'      => $entity,
+        );
+    }
+
+    /**
      * Lists all News entities.
      *
      * @Route("/", name="news")
@@ -105,30 +140,7 @@ class NewsController extends Controller
         );
     }
 
-    /**
-     * Finds and displays a News entity.
-     *
-     * @Route("/{id}", name="news_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MainBundle:News')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find News entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
 
     /**
      * Displays a form to edit an existing News entity.

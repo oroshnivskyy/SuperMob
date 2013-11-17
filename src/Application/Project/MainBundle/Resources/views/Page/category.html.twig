@@ -1,5 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+    {{ render(controller('MainBundle:PageLayout:Slider')) }}
     <div class="container marketing">
         <h2>{{ entity.name }}</h2>
         {#<div class="row featurette">#}
