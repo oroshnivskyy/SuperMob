@@ -111,13 +111,6 @@ services:
     sonata.user.admin.group:
           abstract: true
           public: false
-    sonata.user.form.type.security_roles:
-        class: Application\Sonata\UserBundle\Form\Type\SecurityRolesType
-        tags:
-            - { name:form.type, alias:sonata_security_roles }
-        arguments:
-            - @sonata.admin.pool
-            - %sonata.user.form.type.security_roles.supported_roles%
 sonata_admin:
     title: "Supermobfreebi Admin"
     templates:
