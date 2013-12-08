@@ -6,6 +6,9 @@
 
 {% block fos_user_content %}
     <div class="container marketing">
+        <a href="{{ path('fos_user_change_password') }}" >Изменить пароль</a>
+    </div>
+    <div class="container marketing">
         <div class="row featurette">
             <div class="col-md-3">
                 {{ form_errors(form) }}
