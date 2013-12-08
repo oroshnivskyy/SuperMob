@@ -9,4 +9,5 @@
     </div>
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     <input type="submit" id="_submit" name="_submit" class="btn btn-primary" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+    <a href="{{ path('fos_user_resetting_request') }}">Восстановить пароль</a>
 </form>
