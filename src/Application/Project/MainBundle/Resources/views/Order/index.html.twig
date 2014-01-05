@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container marketing">
+        <div class="row featurette">
+            <div class="col-md-12">
+                <h2 class="featurette-heading" style="margin-top: 0px;">Список покупок</h2>
+                <hr class="featurette-divider" style="margin: 0px 0px 30px 0px"/>
+                <table class="table table-hover">
+                    <thead>
+                        <th>
+                            <td>№</td>
+                            <td>Название</td>
+                            <td>Код доступа</td>
+                            <td></td>
+                        </th>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.id }}</td>
+                                <td>{{ entity.getPurchaseClass.getName }}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class="featurette-divider"/>
+    </div>
+{% endblock %}
