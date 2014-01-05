@@ -12,7 +12,7 @@ class RegistrationFormType extends BaseType
         parent::buildForm($builder, $options);
         $builder
             ->add('country', 'choice',
-                  array('label' => 'Страна',
+                  array('label' => 'Страна:',
                         'expanded' => 'radio',
                         'preferred_choices' => [2],
                         'choices' =>
@@ -25,7 +25,7 @@ class RegistrationFormType extends BaseType
                 array(
                         'class'=> 'MainBundle:Operator',
                         'property' => 'name',
-                        'label' => 'Оператор',
+                        'label' => 'Оператор:',
                    ))
         ;
     }

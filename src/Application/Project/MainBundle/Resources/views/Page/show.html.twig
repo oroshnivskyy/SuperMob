@@ -1,6 +1,11 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     {{ render(controller('MainBundle:PageLayout:Slider')) }}
+    <style>
+        h2 {
+            margin-top: 5px;
+        }
+    </style>
     <div class="container marketing">
         <div class="row featurette">
             <div class="col-md-12">
@@ -8,9 +13,6 @@
                 <hr class="featurette-divider" style="margin-bottom: 20px; margin-top: 0px;"/>
                 <p class="">{{ entity.text|raw }}</p>
             </div>
-            {#<div class="col-md-5">#}
-                {#<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">#}
-            {#</div>#}
         </div>
     </div>
 {% endblock %}

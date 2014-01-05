@@ -1,10 +1,14 @@
 {% extends "SonataUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-    {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-    {% endif %}
     <div class="container marketing">
+        {% if error %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                </div>
+            </div>
+        {% endif %}
         <div class="row featurette">
             <div class="col-md-3">
                 <form role="form" action="{{ path("fos_user_security_check") }}" method="post">
@@ -19,6 +23,7 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <input type="submit" id="_submit" name="_submit" class="btn btn-primary" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
                 </form>
+
             </div>
         </div>
     </div>

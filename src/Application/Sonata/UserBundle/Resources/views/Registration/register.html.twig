@@ -4,12 +4,18 @@
 {% form_theme form _self %}
 
 {% block fos_user_content %}
-<div class="container marketing">
-    <div class="row featurette">
-        <div class="col-md-3">
-            {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    <div class="container marketing">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="">Регистрация</h2>
+                <hr class="featurette-divider" style="margin-bottom: 20px; margin-top: 0px;"/>
+                <div class="row featurette">
+                    <div class="col-md-4">
+                        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-{{ render(controller('MainBundle:PageLayout:OperatorCode')) }}
+    {{ render(controller('MainBundle:PageLayout:OperatorCode')) }}
 {% endblock fos_user_content %}
