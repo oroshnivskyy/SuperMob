@@ -18,6 +18,10 @@ order_new:
     pattern:  /order/new/{id_product}
     defaults: { _controller: MainBundle:Order:new }
 
+order_list:
+    pattern:  /orders
+    defaults: { _controller: MainBundle:Order:index }
+
 news_show:
     pattern:  /news/{id}
     defaults: { _controller: MainBundle:News:show }

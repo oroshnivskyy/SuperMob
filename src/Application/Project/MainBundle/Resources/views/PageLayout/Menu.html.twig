@@ -12,6 +12,7 @@
             <li><a href="{{ path('page_show', {'url':pages['payment_card'].url}) }}">{{ pages['payment_card'].name }}</a></li>
             <li><a href="{{ path('page_show', {'url':pages['how_pay'].url}) }}">{{ pages['how_pay'].name }}</a></li>
             <li><a href="{{ path('page_show', {'url':pages['for_partners'].url}) }}">{{ pages['for_partners'].name }}</a></li>
+            <li><a href="{{ path('page_show', {'url':pages['tarifs'].url}) }}">{{ pages['tarifs'].name }}</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -40,6 +41,7 @@
             <ul class="dropdown-menu">
                 <li><a href="{{ path('sonata_user_profile_show') }}">Просмотреть</a></li>
                 <li><a href="{{ path('sonata_user_profile_edit') }}">Редактировать</a></li>
+                <li><a href="{{ path('order_list') }}">Покупки</a></li>
             </ul>
         </li>
         <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>

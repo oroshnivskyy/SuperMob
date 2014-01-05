@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Rosh\PaymentBundle\Entity\PaymentOrder;
 
 /**
  * Order controller.
@@ -26,10 +27,10 @@ class OrderController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $entities = $em->getRepository('PaymentBundle:PaymentOrder')->findBy(array('status'=>PaymentOrder::STATUS_SUCCESS),array('id' => 'DESC'));
 
         return array(
-//            'entities' => $entities,
+            'entities' => $entities
         );
     }
 
