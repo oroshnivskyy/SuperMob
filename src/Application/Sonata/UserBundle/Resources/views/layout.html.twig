@@ -1,5 +1,11 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+    {{ render(controller('MainBundle:PageLayout:Slider')) }}
+    <style>
+        h2 {
+            margin-top: 5px;
+        }
+    </style>
     {% block fos_user_content %}
     {% endblock fos_user_content %}
 {% endblock %}
