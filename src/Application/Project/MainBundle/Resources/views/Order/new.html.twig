@@ -13,8 +13,52 @@
                         <img class="featurette-image img-responsive" src="{{ webPathContent }}/{{ entity.image }}" alt="{{ entity.name }}">
                     {% endif %}
                 </div>
-                <div>
-                    {{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: entity, email: user.email})) }}
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#home" role="tab" data-toggle="tab">*MainPay</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#profile" role="tab" data-toggle="tab">*ВТБ</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#messages" role="tab" data-toggle="tab">*Терминалы QIWI</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#settings" role="tab" data-toggle="tab">Короткие номера*</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#point" role="tab" data-toggle="tab">Точки оплаты</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#other" role="tab" data-toggle="tab">Другие способы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <br/>
+                        {{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: entity, email: user.email})) }}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <p>
+                            способ оплаты через BTБ cможет предоставить в любое отделение банка ВТБ <a href="http://geo.multicarta.ru/vtb.ua/map/">http://geo.multicarta.ru/vtb.ua/map/</a>
+                        </p>
+                        <br/>
+                        <img src="{{ asset('/images/pay.jpg') }}"/>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                    <div role="tabpanel" class="tab-pane" id="point">...</div>
+                    <div role="tabpanel" class="tab-pane" id="other">...</div>
                 </div>
             </div>
         </div>
