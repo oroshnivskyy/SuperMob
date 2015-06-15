@@ -166,6 +166,7 @@ class PaymentOrder
         $this->setServiceType("");
         $this->setServicePartnerIncome(0);
         $this->setServiceSystemIncome(0);
+
         return $this;
     }
 

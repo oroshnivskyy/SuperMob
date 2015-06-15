@@ -458,6 +458,6 @@ class Content
      * @return float
      */
     public function getCost(){
-        return $this->getPrice()/100;
+        return $this->getPrice();
     }
 }
