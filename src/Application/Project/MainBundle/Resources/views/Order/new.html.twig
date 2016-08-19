@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#home" role="tab" data-toggle="tab">*MainPay</a>
+                        <a href="#home" role="tab" data-toggle="tab">*RfiCb</a>
                     </li>
                     <li role="presentation">
                         <a href="#profile" role="tab" data-toggle="tab">*ВТБ</a>
@@ -46,7 +46,8 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="home">
                         <br/>
-                        {{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: entity, email: user.email})) }}
+                        {#{{ render(controller("PaymentBundle:Base:render",{paymentService:"mainpay", purchase: entity, email: user.email})) }}#}
+                        {{ render(controller("PaymentBundle:Base:render",{paymentService:"rficb", purchase: entity, email: user.email})) }}
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
                         <p>

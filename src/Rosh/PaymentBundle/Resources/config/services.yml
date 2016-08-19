@@ -9,6 +9,15 @@ services:
             - @templating
         calls:
             - [ setParameters, ["%payment.mainpay.url%", "%payment.mainpay.formKey%", "%payment.mainpay.image%", "%payment.mainpay.commission%", "%payment.mainpay.formMethod%", "%payment.mainpay.templatePath%", "%payment.mainpay.apiKey%"] ]
+
+    payment.rficb:
+        class: Rosh\PaymentBundle\Service\RfiCb
+        arguments:
+            - @doctrine
+            - @templating
+        calls:
+            - [ setParameters, ["%payment.rficb.url%", "%payment.rficb.formKey%", "%payment.rficb.image%", "%payment.rficb.formMethod%", "%payment.rficb.templatePath%", "%payment.rficb.apiKey%"] ]
+
 #    payment.example:
 #        class: %payment.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

@@ -107,6 +107,14 @@ parameters:
     payment.mainpay.commission: abonent
     payment.mainpay.formMethod: POST
     payment.mainpay.templatePath: PaymentBundle:Base:mainpay.html.twig
+
+    payment.rficb.url: https://partner.rficb.ru/alba/input/
+    payment.rficb.formKey: "ZKFOFql7d26GeCaDdqxn8uDKFEJumj5gPVO3tnjlPFo="
+    payment.rficb.apiKey: "d713dba8733ca6e7b291641e4150bbd2"
+    payment.rficb.image: https://partner.rficb.ru/gui/images/a1lite_buttons/button_small.png
+    payment.rficb.formMethod: POST
+    payment.rficb.templatePath: PaymentBundle:Base:rficb.html.twig
+
 services:
     sonata.user.admin.group:
           abstract: true
